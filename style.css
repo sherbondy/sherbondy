@@ -9,11 +9,13 @@ body {
 
 #main {
   width: 664px;
-  margin: 27px 48px;
-  padding: 0;
-  background: #808000;
+  margin: 0px 17px;
+  border-width: 55px 32px 55px 32px;
+  border-image: url('hex-fg-tile.png') 55 32 55 32 repeat;
 }
 
 #content {
+  background: #808000;
   padding: 16px 64px;
+  height: 244px;
 }
