@@ -8,17 +8,33 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
-  font-family: Futura, sans;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  background: url('hex-bg-tile.png') #800080;
+  background-color: #800080;
+  background-image: url('hex-bg-tile.png');
 }
 
 #main {
   min-height: 100%;
   margin-left: 193.98969044771425px;
-  background: url('hex-fg-tile.png')#808000 repeat-y;
+  border-right: 32px solid #000;
+  background-color: #808000;
+  background-repeat: repeat-y;
+  background-image: url('hex-fg-tile.png');
 }
 
 #content {
-  padding: 32px;
+  max-width: 665.1075101064489px;
+  padding-top: 64px;
+  padding-left: 166.27687752661222px;
+}
+
+#content h1 {
+  margin-bottom: 32px;
+  font-size: 64px;
+}
+
+#content p {
+  line-height: 1.5;
+  font-size: 24px;
 }
