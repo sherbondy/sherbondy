@@ -1,22 +1,16 @@
 (ns sherbondy.core
+  (:require [sherbondy.constants :as c])
   (:use quil.core)
   (:import javax.imageio.ImageIO))
 
+(def bg-origin [(* 2 c/half-width)
+                (+ c/side-len c/quarter-height)])
 
-(def side-len 32)
-(def half-height (* side-len (Math/sin (/ PI 3))))
-(def half-width  (* side-len (Math/cos (/ PI 3))))
-
-(def bg-origin [(+ side-len half-width)
-                half-height])
-(def fg-origin [side-len
-                half-height])
-
-(def bg-color [128 0 128])
-(def fg-color [128 128 0])
+(def fg-origin [c/half-width
+                (+ c/side-len c/quarter-height)])
 
 (defn hex-point [[center-x center-y] side-len i]
-  (let [angle (* (* 2 Math/PI 1/6) i)]
+  (let [angle (* (* 2 Math/PI 1/6) (+ i 0.5))]
     [(+ center-x (* side-len (Math/cos angle)))
      (+ center-y (* side-len (Math/sin angle)))]))
 
@@ -35,17 +29,23 @@
   (apply fill bg-color)
   (apply stroke fg-color)
   (stroke-weight 2)
-  (hexagon [(- (bg-origin 0) side-len half-width)
-            (+ (bg-origin 1) half-height)]
-           side-len)
-  (hexagon bg-origin side-len)
-  (hexagon [(bg-origin 0)
-            (+ (bg-origin 1) (* 2 half-height))]
-           side-len)
-  (hexagon [(+ (bg-origin 0) side-len half-width)
-            (+ (bg-origin 1) half-height)]
-           side-len)
-  (save-frame "hex-bg-tile.png"))
+  (hexagon [(- (bg-origin 0) c/half-width)
+            (- (bg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+  (hexagon [(+ (bg-origin 0) c/half-width)
+            (- (bg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+
+  (hexagon bg-origin c/side-len)
+
+  (hexagon [(- (bg-origin 0) c/half-width)
+            (+ (bg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+  (hexagon [(+ (bg-origin 0) c/half-width)
+            (+ (bg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+
+  (save-frame c/bg-img-name))
 
 (defn setup-fg []
   (smooth)
@@ -54,17 +54,24 @@
   (stroke-weight 2)
   (apply fill fg-color)
 
-  (hexagon fg-origin side-len)
-  (save-frame "hex-fg-tile.png"))
+  (hexagon [(+ c/half-width (fg-origin 0))
+            (- (fg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+  (hexagon fg-origin c/side-len)
+  (hexagon [(+ c/half-width (fg-origin 0))
+            (+ (fg-origin 1) c/side-len c/quarter-height)]
+           c/side-len)
+
+  (save-frame c/fg-img-name))
 
 (defsketch bg-sketch
   :title "hex background"
   :setup setup-bg
-  :size [(* 2 (+ side-len half-width))
-         (* 4 half-height)])
+  :size [(* 4 c/half-width)
+         (* 3 c/side-len)])
 
 (defsketch fg-sketch
   :title "hex foreground"
   :setup setup-fg
-  :size [side-len
-         (* 2 half-height)])
+  :size [(* 2 c/half-width)
+         (* 3 c/side-len)])

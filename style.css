@@ -1,23 +1,24 @@
 * {
-  margin: 0;
-  padding: 0;
   line-height: 1;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: url('hex-bg-tile.png');
-  font: 16px Futura, sans;
-  position: absolute;
-  width: 100%;
   height: 100%;
+  width: 100%;
+  position: absolute;
+  font-family: Futura, sans;
+  font-size: 16px;
+  background: url('hex-bg-tile.png') #800080;
 }
 
 #main {
-  background: url('hex-fg-tile.png') repeat-y #808000;
-  margin: 0 0 0 110px;
   min-height: 100%;
+  margin-left: 193.98969044771425px;
+  background: url('hex-fg-tile.png')#808000 repeat-y;
 }
 
 #content {
-  padding: 64px;
+  padding: 32px;
 }
