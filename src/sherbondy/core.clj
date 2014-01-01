@@ -64,6 +64,17 @@
 
   (save-frame c/fg-img-name))
 
+(def white [255 255 255])
+
+(defn setup-simple []
+  (smooth)
+  (apply background fg-color)
+  (apply stroke fg-color)
+  (apply fill white)
+
+  (hexagon [c/half-width c/side-len] c/side-len)
+  (save-frame c/simple-img-name))
+
 (defsketch bg-sketch
   :title "hex background"
   :setup setup-bg
@@ -75,3 +86,9 @@
   :setup setup-fg
   :size [(* 2 c/half-width)
          (* 3 c/side-len)])
+
+(defsketch simple-sketch
+  :title "simple hex"
+  :setup setup-simple
+  :size [(* 2 c/half-width)
+         (* 2 c/side-len)])

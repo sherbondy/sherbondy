@@ -48,8 +48,13 @@
    :border-right "32px solid #000"
    :margin-left (px left-margin)
    :min-height (percent 100)}]
+ [:#logo
+  {:position :absolute
+   :left (px (* 5 2 c/half-width))
+   :top  (px (* 2 c/side-len))}]
  [:#content
   {:padding {:left (px left-pad)
+             :right (px c/side-len)
              :top (px (* 2 c/side-len))}
    :max-width (px max-width)}
   [:h1

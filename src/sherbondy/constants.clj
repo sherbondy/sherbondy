@@ -9,3 +9,4 @@
 
 (def bg-img-name "hex-bg-tile.png")
 (def fg-img-name "hex-fg-tile.png")
+(def simple-img-name "hex-simple.png")

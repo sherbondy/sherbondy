@@ -23,9 +23,16 @@ body {
   background-image: url('hex-fg-tile.png');
 }
 
+#logo {
+  top: 64px;
+  left: 277.12812921102034px;
+  position: absolute;
+}
+
 #content {
   max-width: 665.1075101064489px;
   padding-top: 64px;
+  padding-right: 32px;
   padding-left: 166.27687752661222px;
 }
 
