@@ -9,7 +9,8 @@
 
 (def bg-origin [(+ side-len half-width)
                 half-height])
-(def fg-origin [side-len half-height])
+(def fg-origin [side-len
+                half-height])
 
 (def bg-color [128 0 128])
 (def fg-color [128 128 0])
@@ -54,30 +55,6 @@
   (apply fill fg-color)
 
   (hexagon fg-origin side-len)
-  (hexagon [(fg-origin 0)
-            (+ (fg-origin 1) (* 2 half-height))]
-           side-len)
-  (hexagon [(fg-origin 0)
-            (+ (fg-origin 1) (* 4 half-height))]
-           side-len)
-
-  (hexagon [(+ (fg-origin 0) side-len half-width)
-            (+ (fg-origin 1) half-height)]
-           side-len)
-  (hexagon [(+ (fg-origin 0) side-len half-width)
-            (+ (fg-origin 1) (* 3 half-height))]
-           side-len)
-
-  (hexagon [(+ (fg-origin 0) (* 3 side-len))
-            (fg-origin 1)]
-            side-len)
-  (hexagon [(+ (fg-origin 0) (* 3 side-len))
-            (+ (fg-origin 1) (* 2 half-height))]
-           side-len)
-  (hexagon [(+ (fg-origin 0) (* 3 side-len))
-            (+ (fg-origin 1) (* 4 half-height))]
-           side-len)
-
   (save-frame "hex-fg-tile.png"))
 
 (defsketch bg-sketch
@@ -89,5 +66,5 @@
 (defsketch fg-sketch
   :title "hex foreground"
   :setup setup-fg
-  :size [(* 5 side-len)
-         (* 6 half-height)])
+  :size [side-len
+         (* 2 half-height)])
