@@ -9,8 +9,7 @@
             [garden.units :as u :refer [percent px pt]]))
 
 (def left-margin
-  (+ c/half-width
-     (* 3 2 c/half-width)))
+  (dec (* 5 c/half-width)))
 
 (def debug-fg-color
   (rgba (conj c/fg-color 0.9)))
@@ -19,17 +18,19 @@
   (str "url('" link "')"))
 
 (def left-pad
-   (* 6 c/half-width))
+   (* 7 c/half-width))
 
 (def max-width
   (* 12 2 c/half-width))
 
 (css
  {:output-to "style.css"}
+
  [:*
   {:margin 0
    :padding 0
    :line-height 1}]
+
  [:body
   {:background {:image (url c/bg-img-name)
                 :color (rgb c/bg-color)}
@@ -37,26 +38,26 @@
    :font-family "'Source Sans Pro', sans-serif"
    :position :absolute
    :width (percent 100)
-   :height (percent 100)
-   }]
+   :height (percent 100)}]
+
  [:#main
   {:background {:image (url c/fg-img-name)
                 :repeat "repeat-y"
                 :color ;;debug-fg-color
-                (rgb c/fg-color)
-                }
-
+                (rgb c/fg-color)}
    :border-right "16px solid #000"
    :margin-left (px left-margin)
    :min-height (percent 100)}]
+
  [:#logo
   {:position :absolute
-   :left (px (* 5 2 c/half-width))
+   :left (px (* 4 2 c/half-width))
    :top  (px (* 2 c/side-len))}]
+
  [:#content
-  {:padding {:left (px left-pad)
+  {:padding {:left  (px left-pad)
              :right (px c/side-len)
-             :top (px (* 2 c/side-len))}
+             :top   (px (* 2 c/side-len))}
    :max-width (px max-width)}
   [:h1
    {:font-size (px (* 2 c/side-len))
@@ -71,5 +72,5 @@
     :text-decoration :none}
    [:&:hover :&:focus
     {:background (rgb 255 255 255)
-     :border-bottom (str "2px solid #000")}]]]
+     :border-bottom "2px solid #000"}]]]
 )
