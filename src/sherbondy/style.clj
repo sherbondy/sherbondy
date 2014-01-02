@@ -45,7 +45,8 @@
                 :color ;;debug-fg-color
                 (rgb c/fg-color)
                 }
-   :border-right "32px solid #000"
+
+   :border-right "16px solid #000"
    :margin-left (px left-margin)
    :min-height (percent 100)}]
  [:#logo
@@ -62,5 +63,13 @@
     :margin-bottom (px c/side-len)}]
   [:p
    {:font-size (px (* 3/4 c/side-len))
-    :line-height 1.5}]]
+    :line-height 1.5}]
+  [:a
+   {:color (rgb 0 0 0)
+    :border-bottom (str "2px solid "
+                        (as-hex (rgb c/bg-color)))
+    :text-decoration :none}
+   [:&:hover :&:focus
+    {:background (rgb 255 255 255)
+     :border-bottom (str "2px solid #000")}]]]
 )

@@ -17,7 +17,7 @@ body {
 #main {
   min-height: 100%;
   margin-left: 193.98969044771425px;
-  border-right: 32px solid #000;
+  border-right: 16px solid #000;
   background-color: #808000;
   background-repeat: repeat-y;
   background-image: url('hex-fg-tile.png');
@@ -44,4 +44,15 @@ body {
 #content p {
   line-height: 1.5;
   font-size: 24px;
+}
+
+#content a {
+  text-decoration: none;
+  border-bottom: 2px solid #800080;
+  color: #000000;
+}
+
+#content a:hover, #content a:focus {
+  border-bottom: 2px solid #000;
+  background: #ffffff;
 }
