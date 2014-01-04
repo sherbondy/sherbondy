@@ -45,7 +45,8 @@
                 :repeat "repeat-y"
                 :color ;;debug-fg-color
                 (rgb c/fg-color)}
-   :border-right "16px solid #000"
+   :border-right (str c/half-width
+                       "px solid #000")
    :margin-left (px left-margin)
    :min-height (percent 100)}]
 
@@ -56,21 +57,39 @@
 
  [:#content
   {:padding {:left  (px left-pad)
-             :right (px c/side-len)
-             :top   (px (* 2 c/side-len))}
+             :right (px c/side-len)}
    :max-width (px max-width)}
   [:h1
    {:font-size (px (* 2 c/side-len))
-    :margin-bottom (px c/side-len)}]
+    :margin-bottom (px (* 1 c/side-len))}]
   [:p
    {:font-size (px (* 3/4 c/side-len))
-    :line-height 1.5}]
-  [:a
-   {:color (rgb 0 0 0)
-    :border-bottom (str "2px solid "
-                        (as-hex (rgb c/bg-color)))
-    :text-decoration :none}
-   [:&:hover :&:focus
-    {:background (rgb 255 255 255)
-     :border-bottom "2px solid #000"}]]]
+    :line-height 1.5}
+   [:a
+    {:color (rgb 0 0 0)
+     :border-bottom (str "2px solid "
+                         (as-hex (rgb c/bg-color)))
+     :text-decoration :none}
+    [:&:hover :&:focus
+     {:background (rgb 255 255 255)
+      :border-bottom "2px solid #000"}]]]]
+ [:#nav
+  {:display :block
+   :overflow :hidden
+   :margin {:bottom (px c/side-len)}
+   :font-size (px (* 3/4 c/side-len))
+   :font-weight :bold
+   :background (rgb 0 0 0)}
+  [:li {:list-style :none
+        :float :left}
+   [:a {:display :block
+        :float :left
+        :width (px (* 6 c/half-width))
+        :text-decoration :none
+        :text-align :center
+        :padding {:top    (px (* 1/8 c/side-len))
+                  :bottom (px (* 1/8 c/side-len))}
+        :color (rgb 255 255 255)}
+    [:&:hover {:background (rgb 255 255 255)
+               :color (rgb 0 0 0)}]]]]
 )
