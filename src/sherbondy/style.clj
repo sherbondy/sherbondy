@@ -33,7 +33,8 @@
 
  [:body
   {:background {:image (url c/bg-img-name)
-                :color (rgb c/bg-color)}
+                :color (rgb c/bg-color)
+                :position-y (px (* 1.5 c/side-len))}
    :font-size (px 16)
    :font-family "'Source Sans Pro', sans-serif"
    :position :absolute
@@ -43,25 +44,25 @@
  [:#main
   {:background {:image (url c/fg-img-name)
                 :repeat "repeat-y"
+                :position-y (px (* 1 c/side-len))
                 :color ;;debug-fg-color
                 (rgb c/fg-color)}
-   :border-right (str c/half-width
-                       "px solid #000")
-   :margin-left (px left-margin)
+   :margin {:top  (px (* 1 c/side-len))
+            :left (px left-margin)}
    :min-height (percent 100)}]
 
  [:#logo
   {:position :absolute
    :left (px (* 4 2 c/half-width))
-   :top  (px (* 2 c/side-len))}]
+   :top  (px (* 7/2 c/side-len))}]
 
  [:#content
   {:padding {:left  (px left-pad)
-             :right (px c/side-len)}
+             :right (px c/half-width)}
    :max-width (px max-width)}
   [:h1
    {:font-size (px (* 2 c/side-len))
-    :margin-bottom (px (* 1 c/side-len))}]
+    :margin {:bottom (px (* 1 c/side-len))}}]
   [:p
    {:font-size (px (* 3/4 c/side-len))
     :line-height 1.5}
@@ -73,13 +74,22 @@
     [:&:hover :&:focus
      {:background (rgb 255 255 255)
       :border-bottom "2px solid #000"}]]]]
+
  [:#nav
   {:display :block
    :overflow :hidden
-   :margin {:bottom (px c/side-len)}
+   :height (px (* 2 c/side-len))
+   :margin {:top    (px (* -0.5 c/side-len))
+            :left   (px (* 0 c/half-width))
+            :bottom (px c/side-len)}
+   :padding {:left (px (* 3 c/half-width))}
    :font-size (px (* 3/4 c/side-len))
    :font-weight :bold
-   :background (rgb 0 0 0)}
+   :background {:color (rgb 0 0 0)
+                :image (url c/nav-img-name)
+                :repeat "x"
+                :position-x (px (* -1 c/half-width))
+                :position-y (px (* 0 c/side-len))}}
   [:li {:list-style :none
         :float :left}
    [:a {:display :block
@@ -87,9 +97,14 @@
         :width (px (* 6 c/half-width))
         :text-decoration :none
         :text-align :center
-        :padding {:top    (px (* 1/8 c/side-len))
-                  :bottom (px (* 1/8 c/side-len))}
+        :padding {:top    (px (* 5/8 c/side-len))
+                  :bottom (px (* 5/8 c/side-len))}
         :color (rgb 255 255 255)}
-    [:&:hover {:background (rgb 255 255 255)
-               :color (rgb 0 0 0)}]]]]
+    [:&:hover
+     {:background
+      {:color (rgb 255 255 255)
+       :image (url c/nav-hover-img-name)
+       :repeat "x"
+       :position-y (px (* 0 c/side-len))}
+     :color (rgb 0 0 0)}]]]]
 )

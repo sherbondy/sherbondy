@@ -10,28 +10,30 @@ body {
   position: absolute;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
-  background-color: #800080;
+  background-position-y: 48.0px;
+  background-color: #600060;
   background-image: url('hex-bg-tile.png');
 }
 
 #main {
   min-height: 100%;
   margin-left: 137.56406460551017px;
-  border-right: 27.712812921102035px solid #000;
-  background-color: #808000;
-  background-repeat: repeat-y;
+  margin-top: 32px;
   background-image: url('hex-fg-tile.png');
+  background-repeat: repeat-y;
+  background-position-y: 32px;
+  background-color: #808000;
 }
 
 #logo {
-  top: 64px;
+  top: 112px;
   left: 221.70250336881628px;
   position: absolute;
 }
 
 #content {
   max-width: 665.1075101064489px;
-  padding-right: 32px;
+  padding-right: 27.712812921102035px;
   padding-left: 193.98969044771425px;
 }
 
@@ -47,7 +49,7 @@ body {
 
 #content p a {
   text-decoration: none;
-  border-bottom: 2px solid #800080;
+  border-bottom: 2px solid #600060;
   color: #000000;
 }
 
@@ -57,12 +59,20 @@ body {
 }
 
 #nav {
-  background: #000000;
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 32px;
-  display: block;
   overflow: hidden;
+  display: block;
+  padding-left: 83.13843876330611px;
+  background-color: #000000;
+  margin-left: 0.0px;
+  height: 64px;
+  margin-bottom: 32px;
+  background-position-x: -27.712812921102035px;
+  background-position-y: 0px;
+  margin-top: -16.0px;
+  font-weight: bold;
+  background-repeat: x;
+  background-image: url('hex-nav.png');
+  font-size: 24px;
 }
 
 #nav li {
@@ -72,8 +82,8 @@ body {
 
 #nav li a {
   color: #ffffff;
-  padding-bottom: 4px;
-  padding-top: 4px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   display: block;
   float: left;
   width: 166.27687752661222px;
@@ -83,5 +93,8 @@ body {
 
 #nav li a:hover {
   color: #000000;
-  background: #ffffff;
+  background-position-y: 0px;
+  background-repeat: x;
+  background-image: url('hex-nav-hover.png');
+  background-color: #ffffff;
 }
